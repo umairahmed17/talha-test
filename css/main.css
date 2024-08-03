@@ -1,0 +1,202 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf");
+}
+
+:root {
+  --text-color: #333333;
+  --fade-color: #eaeaea;
+  --bg-gradient: #194d44;
+  --bg-color: #297c6b;
+  --hover-color: #5bc8af;
+  --base-bg: #ffffff;
+
+  --font-family: "Montserrat", sans-serif;
+
+  --base-fs: 16px;
+  --h1-mult: 4;
+  --h2-mult: 2.5;
+  --h3-mult: 1.5;
+
+  --border-radius-lg: 8px;
+  --border-radius-sm: 2px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--base-fs);
+}
+
+h1 {
+  font-size: calc(var(--h1-mult) * 1rem);
+  font-weight: 700;
+  line-height: 72px;
+}
+
+.text--outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: inherit;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.input-group--floating {
+  position: relative;
+}
+
+.input-group input {
+  padding: 14px 1rem;
+  border: 1px solid;
+  border-radius: var(--border-radius-sm);
+  background-color: transparent;
+}
+
+.input-group--floating label {
+  position: absolute;
+  pointer-events: none;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  background: #fff;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.input-group input:not(:focus) {
+  color: var(--fade-color);
+}
+
+.input-group input:not(:focus) + label {
+  color: var(--fade-color);
+}
+
+.input-group input:focus, .input-group input:not(:placeholder-shown){
+	color: inherit;
+}
+
+.input-group--floating input:focus + label,.input-group--floating input:not(:placeholder-shown) + label {
+	top:-1px;
+	font-size: 12px;
+	color: inherit;
+}
+
+.input-group--floating input:focus + label{
+	top:-1px;
+	font-size: 12px;
+	color: inherit;
+} 
+
+.input-group input:focus + label {
+  color: inherit;
+}
+
+
+.btn {
+	padding: 1rem 3rem;
+	border: 1px solid;
+	border-radius: var(--border-radius-sm);
+	border-color: var(--hover-color);
+	background-color: var(--hover-color);
+	color: white;
+	cursor: pointer;
+}
+
+.btn:hover{
+	background-color: transparent;
+	color: var(--hover-color);
+}
+
+.btn.btn--alt{
+	background-color: transparent;
+	color: var(--hover-color);
+}
+
+.btn.btn--alt:hover{
+	background-color: var(--hover-color);
+	color: white;
+}
