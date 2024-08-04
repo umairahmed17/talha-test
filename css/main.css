@@ -221,3 +221,9 @@ h1 {
 .mt-4 {
   margin-top: 1rem;
 }
+
+@media (max-width: 720px) {
+  .container {
+    margin: 2rem;
+  }
+}
