@@ -155,48 +155,69 @@ h1 {
   color: var(--fade-color);
 }
 
-.input-group input:focus, .input-group input:not(:placeholder-shown){
-	color: inherit;
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+  color: inherit;
 }
 
-.input-group--floating input:focus + label,.input-group--floating input:not(:placeholder-shown) + label {
-	top:-1px;
-	font-size: 12px;
-	color: inherit;
+.input-group--floating input:focus + label,
+.input-group--floating input:not(:placeholder-shown) + label {
+  top: -1px;
+  font-size: 12px;
+  color: inherit;
 }
 
-.input-group--floating input:focus + label{
-	top:-1px;
-	font-size: 12px;
-	color: inherit;
-} 
+.input-group--floating input:focus + label {
+  top: -1px;
+  font-size: 12px;
+  color: inherit;
+}
 
 .input-group input:focus + label {
   color: inherit;
 }
 
-
 .btn {
-	padding: 1rem 3rem;
-	border: 1px solid;
-	border-radius: var(--border-radius-sm);
-	border-color: var(--hover-color);
-	background-color: var(--hover-color);
-	color: white;
-	cursor: pointer;
+  padding: 1rem 3rem;
+  border: 1px solid;
+  border-radius: var(--border-radius-sm);
+  border-color: var(--hover-color);
+  background-color: var(--hover-color);
+  color: white;
+  cursor: pointer;
 }
 
-.btn:hover{
-	background-color: transparent;
-	color: var(--hover-color);
+.btn:hover {
+  background-color: transparent;
+  color: var(--hover-color);
 }
 
-.btn.btn--alt{
-	background-color: transparent;
-	color: var(--hover-color);
+.btn.btn--alt {
+  background-color: transparent;
+  color: var(--hover-color);
 }
 
-.btn.btn--alt:hover{
-	background-color: var(--hover-color);
-	color: white;
+.btn.btn--alt:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
+
+.container {
+  margin: 8rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  & img {
+    width: 370px;
+    height: 180px;
+    border-radius: 3%;
+  }
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
