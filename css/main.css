@@ -208,7 +208,6 @@ h1 {
 
 .flex {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 2rem;
   & img {
@@ -218,12 +217,39 @@ h1 {
   }
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.mt-8 {
+  margin-top: 2.5rem;
+}
+
+.text-container {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+
+  & p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+.text-column {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.text-header {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem;
 }
 
 @media (max-width: 720px) {
   .container {
     margin: 2rem;
+  }
+
+  .text-column {
+    flex-wrap: wrap;
   }
 }
