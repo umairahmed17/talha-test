@@ -548,29 +548,33 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-
+  margin: 5rem;
  
 }
 
 .button {
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 2rem;
+  font-size: 18px;
   font-weight: 600;
   border: none;
-  border: 8px  solid var(--bg-color);;
+  text-align: center;
+  border: 2px  solid var(--bg-color);;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  & button {
+    cursor: pointer;
+    color: var(--text-color);
+  }
+
 }
 
-.button:focus {
-  outline: 3px solid rgba(253, 99, 47, 0.5);
-  outline-offset: 2px;
-  background-color: transparent;
-  color: var(--text-color);
-  border: 2px solid var(--bg-color);
+.button:hover {
+
+  & button {
+  color: var(--bg-color);
+  }
 }
-
-
 
 /* 
 @media (max-width: 720px) {
@@ -578,6 +582,81 @@ header {
     margin: 2rem;
   }
 } */
+
+.inline_flex {
+  display: inline-flex;
+  gap: 1rem;
+
+  & p {
+    word-break: break-all;
+  }
+}
+
+.video_banner {
+  background-color: var(--bg-gradient);
+  padding: 4rem;
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding-top: 100px;
+}
+
+.video_bullets{
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  margin: 2rem;
+
+  & h3{
+    margin: 2rem 0;
+  }
+
+  & p{
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    
+  }
+}
+
+
+.curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: var(--bg-gradient)
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background-color: var(--bg-color);
+  transform: translate(-4%, 40%);
+  z-index: -1;
+}
 
 main section {
   margin-block: 80px;
@@ -587,6 +666,14 @@ main section {
   .sm-none {
     display: none;
   }
+  .button_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+   
+  }
+
 }
 
 @media (max-width: 576px) {
