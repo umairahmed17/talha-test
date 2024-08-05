@@ -64,7 +64,6 @@ input:focus {
   outline: 0;
 }
 
-
 /* These elements are usually rendered a certain way by the browser */
 button,
 input[type="reset"],
@@ -129,15 +128,15 @@ h3 {
   line-height: 34px;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.text-uppercase{
+.text-uppercase {
   text-transform: uppercase;
 }
 
-.text-bold{
+.text-bold {
   font-weight: 700;
 }
 
@@ -153,11 +152,13 @@ h3 {
 
 .input-group--floating {
   --floating-label-color: white;
+  --label-color: white;
   position: relative;
 }
 
 .input-group--floating.hero__form-input {
-  --floating-label-color: rgba(0, 127, 155, 1);
+  --floating-label-color: #2a7d6c;
+  --label-color: transparent;
 }
 
 .input-group input {
@@ -176,7 +177,7 @@ h3 {
   top: 50%;
   transform: translateY(-50%);
   padding: 0 5px;
-  background: var(--floating-label-color);
+  background: var(--label-color);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -200,12 +201,14 @@ h3 {
   top: -1px;
   font-size: 12px;
   color: inherit;
+  background-color: var(--floating-label-color);
 }
 
 .input-group--floating input:focus + label {
   top: -1px;
   font-size: 12px;
   color: inherit;
+  background-color: var(--floating-label-color);
 }
 
 .input-group input:focus + label {
@@ -222,7 +225,7 @@ h3 {
   cursor: pointer;
 }
 
-.btn.btn--with-icon{
+.btn.btn--with-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,28 +247,44 @@ h3 {
   color: white;
 }
 
-
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   & img {
+    @media (max-width: 768px) {
+      width: 224px;
+      height: 120px;
+    }
     width: 370px;
     height: 180px;
-    border-radius: 3%;
+    border-radius: var(--border-radius-lg);
+    object-fit: cover;
   }
+}
+
+.spacing-xl {
+  margin-block: 4rem;
+}
+
+.spacing-lg {
+  margin-block: 2rem;
+}
+
+.spacing {
+  margin-block: 1rem;
 }
 
 .mt-4 {
-  margin-top: 1rem;
+  margin-top: 4rem;
 }
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
   .container {
     margin: 2rem;
   }
-}
+} */
 .tooltip {
   --tooltip-bg: var(--bg-color);
   --arrow-width: 11px;
@@ -410,16 +429,25 @@ header {
   background: linear-gradient(var(--linear-gradient-hero));
 }
 
-.hero__section .hero__left{
+@media (max-width: 1020px) {
+  .hero__section div.container {
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+.hero__section .hero__left {
   max-width: 600px;
   margin-block: auto;
 }
-.hero__section .hero__left h1{
+.hero__section .hero__left h1 {
   margin-bottom: 1rem;
 }
 
 .hero__section .hero__right .form__container {
   max-height: 450px;
+  min-width: min(100%, 450px);
   background: linear-gradient(180deg, #2a7d6c 0%, rgba(62, 105, 96, 0.62) 100%);
   padding: 4rem 1.5rem;
   border-radius: var(--border-radius-xl);
@@ -430,50 +458,44 @@ header {
   margin-block: 1rem;
 }
 
-.hero__section .hero__right .form__container form > *:first-child{
+.hero__section .hero__right .form__container form > *:first-child {
   margin-bottom: 2rem;
   margin-top: 0;
 }
 
-.hero__section .hero__right .form__container form > *:last-child{
+.hero__section .hero__right .form__container form > *:last-child {
   margin-top: 1.25rem;
 }
 
-.hero__section .hero__right .form__container form .form__group{
+.hero__section .hero__right .form__container form .form__group {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.hero__section .hero__right .form__container form .form__group input{
+.hero__section .hero__right .form__container form .form__group input {
   max-width: 200px;
 }
 
-.hero__section .hero__right .form__container form button.btn{
+.hero__section .hero__right .form__container form button.btn {
   margin-top: 2.5rem;
   padding-inline: 4rem;
 }
 
-
 .hero__section .container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .mt-4 {
   margin-top: 1rem;
 }
-
 
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  & img {
-    width: 370px;
-    height: 180px;
-    border-radius: 3%;
-  }
 }
 
 .carousel {
@@ -489,10 +511,10 @@ header {
 }
 
 .image_container {
-  & img{
+  & img {
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
   }
 }
 
@@ -509,18 +531,16 @@ header {
   line-height: 34px;
   text-align: left;
   margin-bottom: 2rem;
-
 }
 
 .qoute {
-  
-& p {
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 28px;
-  text-align: left;
-}
+  & p {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+  }
 }
 
 
@@ -552,8 +572,25 @@ header {
 
 
 
+/* 
 @media (max-width: 720px) {
   .container {
     margin: 2rem;
+  }
+} */
+
+main section {
+  margin-block: 80px;
+}
+
+@media (max-width: 768px) {
+  .sm-none {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .xs-none {
+    display: none;
   }
 }
