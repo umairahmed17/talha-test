@@ -314,9 +314,9 @@ div.fixed-width {
   }
 } */
 .tooltip {
+  display: none;
   --tooltip-bg: var(--bg-color);
   --arrow-width: 11px;
-  position: relative;
   max-width: 300px;
   max-height: 100px;
   padding: 1rem 12px;
@@ -325,11 +325,13 @@ div.fixed-width {
   background-color: var(--tooltip-bg);
   border-radius: var(--border-radius-lg);
   color: white;
+  position: absolute;
 }
 
 .tooltip:after {
-  position: absolute;
+
   content: "";
+  bottom: 0;
   width: 0px;
   height: 0px;
 }
@@ -339,8 +341,6 @@ div.fixed-width {
   border-right: var(--arrow-width) solid transparent;
   border-top: var(--arrow-width) solid transparent;
   border-left: var(--arrow-width) solid transparent;
-  top: -18px;
-  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -589,14 +589,20 @@ header {
 
   & button {
     cursor: pointer;
+    position: relative;
     color: var(--text-color);
   }
 }
 
 .button:hover {
+
   & button {
     color: var(--bg-color);
   }
+}
+
+.button:hover .tooltip {
+  display: block;
 }
 
 /* 
