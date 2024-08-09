@@ -170,7 +170,8 @@ h3 {
   --label-color: transparent;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
   font-size: 1rem;
   width: 100%;
   padding: 14px 1rem;
@@ -192,35 +193,43 @@ h3 {
   -webkit-transition: 0.2s ease all;
 }
 
-.input-group input:not(:focus) {
+.input-group input:not(:focus),
+.input-group select:not(:focus) {
   color: var(--fade-color);
 }
 
-.input-group input:not(:focus) + label {
+.input-group input:not(:focus) + label,
+.input-group select:not(:focus) + label {
   color: var(--fade-color);
 }
 
 .input-group input:focus,
-.input-group input:not(:placeholder-shown) {
+.input-group input:not(:placeholder-shown),
+.input-group select:focus,
+.input-group select:not(:placeholder-shown) {
   color: inherit;
 }
 
 .input-group--floating input:focus + label,
-.input-group--floating input:not(:placeholder-shown) + label {
+.input-group--floating input:not(:placeholder-shown) + label,
+.input-group--floating select:focus + label,
+.input-group--floating select:not(:placeholder-shown) + label {
   top: -1px;
   font-size: 12px;
   color: inherit;
   background-color: var(--floating-label-color);
 }
 
-.input-group--floating input:focus + label {
+.input-group--floating input:focus + label,
+.input-group--floating select:focus + label {
   top: -1px;
   font-size: 12px;
   color: inherit;
   background-color: var(--floating-label-color);
 }
 
-.input-group input:focus + label {
+.input-group input:focus + label,
+.input-group select:focus + label {
   color: inherit;
 }
 
@@ -513,7 +522,7 @@ header {
 
   & p {
     color: var(--fade-color);
-    @media (max-width: 768px){
+    @media (max-width: 768px) {
       text-align: center;
     }
   }
@@ -554,7 +563,6 @@ header {
   }
 }
 
-
 .hero__section .hero__right .form__container form button.btn {
   margin-top: 2.5rem;
   padding-inline: 4rem;
@@ -587,7 +595,7 @@ header {
   justify-content: center;
   flex-wrap: nowrap;
 
-  @media (max-width: 576px){
+  @media (max-width: 576px) {
     margin-top: 60px;
   }
 }
@@ -630,7 +638,7 @@ header {
   @media (max-width: 768px) {
     padding: 2rem;
   }
-  @media( max-width: 576px){
+  @media (max-width: 576px) {
     padding-top: 150px;
     border-radius: var(--border-radius-lg);
   }
@@ -712,6 +720,7 @@ header {
 
 .video_banner {
   background-color: var(--bg-gradient);
+  color: white;
   padding: 4rem;
   width: 50%;
   position: relative;
@@ -722,13 +731,25 @@ header {
   padding-top: 100px;
 }
 
-.video_bullets {
-  color: white;
+.video_bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
   text-align: left;
-  margin: 2rem;
+  margin-block: 2rem;
+  margin-inline: 0.5rem;
+
+  & .bullet__icon {
+    padding-top: 1rem;
+    color: var(--hover-color);
+  }
+
+  & .bullet__content {
+    width: 100%;
+  }
 
   & h3 {
     margin: 2rem 0;
