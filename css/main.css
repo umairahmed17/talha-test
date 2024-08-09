@@ -114,6 +114,15 @@ h1 {
   font-size: calc(var(--h1-mult) * 1rem);
   font-weight: 700;
   line-height: 72px;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 2rem;
+    line-height: 40px;
+  }
 }
 
 h2 {
@@ -267,15 +276,22 @@ h3 {
   }
 }
 
+.understand-section {
+  background-color: #f5f5f5;
+}
+
 div.fixed-width {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   gap: 2rem;
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
   & p {
     @media (max-width: 768px) {
-      width: 350px;
+      width: 340px;
     }
     width: 370px;
   }
@@ -494,13 +510,20 @@ header {
 .hero__section .hero__left {
   max-width: 600px;
   margin-block: auto;
+
+  & p {
+    color: var(--fade-color);
+    @media (max-width: 768px){
+      text-align: center;
+    }
+  }
 }
 .hero__section .hero__left h1 {
   margin-bottom: 1rem;
 }
 
 .hero__section .hero__right .form__container {
-  max-height: 450px;
+  min-height: 450px;
   min-width: min(100%, 450px);
   background: linear-gradient(180deg, #2a7d6c 0%, rgba(62, 105, 96, 0.62) 100%);
   padding: 4rem 1.5rem;
@@ -525,11 +548,12 @@ header {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+
+  & > * {
+    flex-grow: 1;
+  }
 }
 
-.hero__section .hero__right .form__container form .form__group input {
-  max-width: 200px;
-}
 
 .hero__section .hero__right .form__container form button.btn {
   margin-top: 2.5rem;
@@ -557,28 +581,40 @@ header {
 }
 
 .card_container {
+  position: relative;
   display: flex;
   gap: 2rem;
   justify-content: center;
   flex-wrap: nowrap;
+
+  @media (max-width: 576px){
+    margin-top: 60px;
+  }
 }
 
 .image_container {
+  @media (max-width: 576px) {
+    position: absolute;
+    top: -60px;
+    z-index: 3;
+    left: 30px;
+  }
   & img {
     max-width: 270px;
     width: 100%;
     height: 100%;
     object-fit: cover;
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: var(--border-radius-lg);
+    border-bottom-left-radius: var(--border-radius-lg);
 
     @media (max-width: 768px) {
-      max-width: 200px;
+      width: 200px;
     }
 
     @media (max-width: 570px) {
-      max-width: 180px;
+      width: 180px;
+      border-radius: var(--border-radius-lg);
     }
   }
 }
@@ -590,6 +626,14 @@ header {
   color: rgba(255, 255, 255, 1);
   border-top-right-radius: var(--border-radius-lg);
   border-bottom-right-radius: var(--border-radius-lg);
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+  @media( max-width: 576px){
+    padding-top: 150px;
+    border-radius: var(--border-radius-lg);
+  }
 }
 
 .qoute_header {
@@ -597,7 +641,13 @@ header {
   font-weight: 700;
   line-height: 34px;
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+
+  & h3 {
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
 }
 
 .qoute {
@@ -607,6 +657,10 @@ header {
     font-weight: 400;
     line-height: 28px;
     text-align: left;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -719,8 +773,9 @@ header {
   z-index: -1;
 }
 
-main section {
-  margin-block: 80px;
+main section.spacing-xl {
+  padding-block: 80px;
+  margin-block: 0;
 }
 
 @media (max-width: 768px) {
@@ -748,11 +803,15 @@ main section {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   list-style: none;
   padding: 0 0 4rem 0;
   z-index: 1;
   display: block;
+
+  &.offset {
+    top: -30px;
+  }
 
   [aria-controls] {
     cursor: pointer;
@@ -812,7 +871,7 @@ main section {
 .slider .slider__wrapper .slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -821,7 +880,6 @@ main section {
   height: 100%;
   position: relative;
   transition-property: transform;
-  display: block;
   transition: all 0.3s ease;
 
   &:not(.active) {
@@ -863,6 +921,10 @@ main section {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-sm);
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 
   &:hover {
     color: var(--hover-color);
