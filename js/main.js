@@ -114,3 +114,46 @@ const slider = {
     });
   },
 };
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const countrySelect = document.getElementById('country-select');
+  
+  const countries = [
+      "United States", "Canada", "Mexico", "Brazil", "Argentina", 
+      "United Kingdom", "France", "Germany", "Italy", "Spain", 
+      "Australia", "New Zealand", "Japan", "China", "India", 
+      "South Korea", "Russia", "South Africa", "Egypt", "Nigeria"
+  ];
+
+  countries.forEach(country => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countrySelect.appendChild(option);
+  });
+
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const contact = document.getElementById('contact').value;
+    const country = document.getElementById('country-select').value;
+
+    const formData = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      contact: contact,
+      country: country
+    };
+    
+    console.log('Form Submitted:', formData);
+    alert('Form submitted successfully!');
+    window.location.href = 'success.html'; 
+  });
+});
