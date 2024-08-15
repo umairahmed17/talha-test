@@ -152,8 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
       country: country
     };
     
-    console.log('Form Submitted:', formData);
-    alert('Form submitted successfully!');
-    window.location.href = 'success.html'; 
   });
+
+  const playButton = document.querySelector(".play-button");
+  const videoPopup = document.getElementById("video-popup");
+  const videoPopupClose = videoPopup.querySelector(".popup__close button");
+  playButton.addEventListener("click", function(){
+    if (!videoPopup.classList.contains("show")){
+      videoPopup.classList.add("show");
+    }
+    if(!document.body.classList.contains("no-scroll")){
+      document.body.classList.add("no-scroll");
+    }
+  });
+  videoPopupClose.addEventListener("click", function(){
+    if(videoPopup.classList.contains("show")){
+      videoPopup.classList.remove("show");
+    }
+    if(document.body.classList.contains("no-scroll")){
+      document.body.classList.remove("no-scroll");
+    }
+  });
+
+
 });
